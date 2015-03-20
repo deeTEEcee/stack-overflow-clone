@@ -1,16 +1,35 @@
+<% prod_db = 'default' %>
+<% prod_username = 'default' %>
+<% prod_password = 'default' %>
+<% prod_host = 'default' %>
+<% prod_port = 'default' %>
+<% if ENV['MONGOLAB_URI'] %>
+  <% uri = URI.parse(ENV['MONGOLAB_URI']) %>
+  <% prod_db = uri.path.sub('/','') %>
+  <% prod_username = uri.user %>
+  <% prod_password = uri.password %>
+  <% prod_host = uri.host %>
+  <% prod_port = uri.port %>
+<% end %>
+
 development:
   sessions:
     default:
       database: stack_overflow
       hosts:
         - localhost:27017
-      options:
   options:
 production:
   sessions:
     default:
-      uri: <%= ENV['MONGOHQ_URL'] %>
-      options:
-        consistency: :strong
-        max_retries: 1
-        retry_interval: 0
+      database: <%= prod_db %>
+      username: <%= prod_username %>
+      password: <%= prod_password %>
+      hosts:
+        - <%= prod_host %>:<%= prod_port %>
+      max_retries_on_connection_failure: 20
+      persist_in_safe_mode: true
+      skip_version_check: true
+  options:
+    use_activesupport_time_zone: false
+    use_utc: true

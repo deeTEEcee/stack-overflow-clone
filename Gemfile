@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
 gem 'mongoid', '~> 4.0.0'
+gem 'mongoid_token' # for the URL idgem 'mongoid_token', '~> 2.0.0'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -29,3 +30,9 @@ group :development, :test do
   # gem 'spring'
 end
 
+group :production do
+	gem 'rails_12factor'
+	gem 'factory_girl_rails' # TODO: remove after we confirmed heroku works
+end
+
+ruby "2.2.0"
