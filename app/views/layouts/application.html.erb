@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>StackoverflowClone</title>
+  <title>Stack Overflow</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -13,15 +13,18 @@
 			<img alt="Stack Overflow Brand" src="...">
 		</a>
     <ul class="nav navbar-nav">
-      <li><a href="#">Sign up</a></li>
-      <li><a href="#">Log in</a></li>
+			<% if logged_in? %>
+			  Logged in as <%= current_user.email %>.
+			  <li><%= link_to "Log out", logout_path %></li>
+			<% else %>
+			  <li><%= link_to "Sign up", signup_path %></li>
+			  <li><%= link_to "log in", login_path %></li>
+			<% end %>
     </ul>
 	</nav>
-
-	<div class="page-header">
-  	<h1>stackoverflow</h1>
+	<div id="header" class="container">
+		<h1>stackoverflow</h1>
 	</div>
-	
 	<div class="container">
 		<%= yield %>
 	</div>

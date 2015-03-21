@@ -1,0 +1,13 @@
+<ul class="nav nav-tabs">
+  <li class="<%= 'active' if params[:controller] == 'sessions' %>">
+  	<%= link_to 'Log in', login_path %>
+  </li>
+  <li class="<%= 'active' if params[:controller] == 'users' %>">
+  <%= link_to 'Sign up', signup_path %>
+  </li>   
+</ul>
+<% if params[:controller] == 'sessions' %>
+	<%= render 'sessions/login' %>	
+<% elsif params[:controller] == 'users' %>
+	<%= render 'sign_up' %>
+<% end %>

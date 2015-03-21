@@ -1,0 +1,11 @@
+<div class="page-header">
+<h3>Log Out</h3>
+</div>
+<p>
+Clicking Log Out will clear our cookies and log you out of Stack Overflow on all devices.
+</p>
+<p>
+If you're on a shared computer, remember to log out of your Open ID provider (Facebook, Google, Stack Exchange, etc.) as well.
+</p>
+<%= link_to 'Log out', session_path(current_user), class: 'btn btn-lg btn-info', method: :delete %> 
+<%= link_to 'cancel', root_path  %>
