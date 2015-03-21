@@ -5,8 +5,8 @@ gem 'rails', '4.2.1'
 gem 'mongoid', '~> 4.0.0'
 gem 'mongoid_token' # for the URL idgem 'mongoid_token', '~> 2.0.0'
 
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem 'bootstrap-sass', '~> 3.3.4'
+gem 'sass-rails', '>= 3.2'
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 #gem 'coffee-rails', '~> 4.1.0'

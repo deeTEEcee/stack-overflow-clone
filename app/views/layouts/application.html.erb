@@ -8,7 +8,29 @@
 </head>
 <body>
 
-<%= yield %>
+	<nav id="header" class="navbar navbar-default navbar-static-top">
+		<a class="navbar-brand" href="#">
+			<img alt="Stack Overflow Brand" src="...">
+		</a>
+    <ul class="nav navbar-nav">
+      <li><a href="#">Sign up</a></li>
+      <li><a href="#">Log in</a></li>
+    </ul>
+	</nav>
+
+	<div class="page-header">
+  	<h1>stackoverflow</h1>
+	</div>
+	
+	<div class="container">
+		<%= yield %>
+	</div>
+	
+	<nav id="footer" class="navbar navbar-default">
+		<div class="container">
+			<p>Just some text in here about copyright</p>
+		</div>
+	</nav>
 
 </body>
 </html>

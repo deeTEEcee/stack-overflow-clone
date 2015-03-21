@@ -1,0 +1,17 @@
+$navbar-default-bg: #000000;
+$navbar-height: 35px;
+
+#header {
+   padding:10px;
+}
+
+#body {
+   padding:10px;
+   padding-bottom:60px;   /* Height of the footer */
+}
+
+#footer {
+   position:absolute;
+   bottom:0;
+   width:100%;
+}
