@@ -10,7 +10,7 @@
 
 	<nav id="header" class="navbar navbar-default navbar-static-top">
 		<a class="navbar-brand" href="#">
-			<img alt="Stack Overflow Brand" src="...">
+			<img alt="Stack Overflow Brand">
 		</a>
     <ul class="nav navbar-nav">
 			<% if logged_in? %>
@@ -22,14 +22,26 @@
 			<% end %>
     </ul>
 	</nav>
+	
 	<div id="header" class="container">
-		<h1>stackoverflow</h1>
+		<h1 style="display: inline-block;">stackoverflow</h1>
+		<div span="nav" style="display: inline;">
+		<%= link_to 'Questions', questions_path %>
+		<%= link_to 'Ask Question', new_question_path %>
+		</div>
 	</div>
 	<div class="container">
+		<% if flash[:login] %>
+			<div id="login-required">
+				You must be logged in to ask a question on Stack Overflow
+
+				Log in below or <%= link_to 'Sign up', signup_path %>			
+			</div>
+		<% end %>
 		<%= yield %>
 	</div>
 	
-	<nav id="footer" class="navbar navbar-default">
+	<footer id="footer" class="navbar navbar-default">
 		<div class="container">
 			<p>Just some text in here about copyright</p>
 		</div>

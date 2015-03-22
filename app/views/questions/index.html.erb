@@ -5,11 +5,9 @@ Questions
 <% @questions.each do |question| %>
   <div class="answered">Insert countk77mry35nvx46 here</div>
   <div class="summary">
-    <p> Question link here</p>
+    <p> <%= link_to question.title, question_path(question, question.title.parameterize) %> </p>
     <p> When was this last asked/modified?</p>
   </div>
 <% end %>
 </div>
 <br>
-
-<%= link_to 'New Question', new_question_path %>

@@ -3,10 +3,9 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
 gem 'mongoid', '~> 4.0.0'
-gem 'mongoid_token' # for the URL idgem 'mongoid_token', '~> 2.0.0'
 gem 'sorcery'
 
-gem 'simple_form'
+gem 'simple_form' ## Warning: not supported by mongoid but it does work
 gem 'bootstrap-sass', '~> 3.3.4'
 gem 'sass-rails', '>= 3.2'
 gem 'uglifier', '>= 1.3.0'

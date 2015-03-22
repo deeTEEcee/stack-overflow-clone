@@ -1,37 +1,36 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
-  # before_action :require_login, :only => :some_action
+  before_action :require_login, :only => [:new, :edit]
 
-  # GET /questions
   def index
     @questions = Question.all
   end
 
-  # GET /questions/1
   def show
+    if params[:title] != @question.title.parameterize
+      redirect_to question_path(@question, @question.title.parameterize)
+    end
+    @answer = nil
+
   end
 
-  # GET /questions/new
   def new
-    @question = Question.new
+    @question = questions.new
   end
 
-  # GET /questions/1/edit
   def edit
   end
 
-  # POST /questions
   def create
-    @question = Question.new(question_params)
+    @question = questions.new(question_params)
 
     if @question.save
-      redirect_to @question, notice: 'Question was successfully created.'
+      redirect_to @question
     else
       render :new
     end
   end
 
-  # PATCH/PUT /questions/1
   def update
     if @question.update(question_params)
       redirect_to @question, notice: 'Question was successfully updated.'
@@ -40,20 +39,21 @@ class QuestionsController < ApplicationController
     end
   end
 
-  # DELETE /questions/1
   def destroy
-    @question.destroy
-    redirect_to questions_url, notice: 'Question was successfully destroyed.'
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_question
-      @question = Question.find(params[:id])
+      @question = questions.find(params[:id])
+    end
+
+    def questions
+      Question.where(user: current_user)
     end
 
     # Only allow a trusted parameter "white list" through.
     def question_params
-      params[:question]
+      params.require(:question).permit(:title, :description)
     end
 end

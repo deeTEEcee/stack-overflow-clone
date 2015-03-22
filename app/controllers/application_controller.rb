@@ -5,8 +5,12 @@ class ApplicationController < ActionController::Base
 
   def require_logged_out
   	if logged_in?
-  		redirect_back_or_to root_url
+  		redirect_to root_url
   	end
+  end
+
+  def not_authenticated
+    redirect_to login_url, :login => 'Login required'
   end
 
 end

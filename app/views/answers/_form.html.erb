@@ -1,0 +1,7 @@
+<% @answer = @question.answers.build unless @answer %>
+
+<%= simple_form_for [@question, @answer] do |f| %>
+  <h4>Your Answer</h4>
+  <%= f.input :description %>
+  <%= f.button :submit, 'Post Your Answer', class: 'btn btn-md btn-primary' %> 
+<% end %>

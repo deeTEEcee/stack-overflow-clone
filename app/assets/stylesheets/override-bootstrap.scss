@@ -1,13 +1,18 @@
 $navbar-default-bg: #000000;
 $navbar-height: 35px;
+$footer-height: 35px;
+
+html {
+  position: relative;
+  min-height: 100%;
+}
 
 #header {
    padding:10px;
 }
 
-#body {
-   padding:10px;
-   padding-bottom:60px;   /* Height of the footer */
+body {
+   padding-bottom: 60px;   /* Height of the footer. Need to play around with this. */
 }
 
 #footer {
