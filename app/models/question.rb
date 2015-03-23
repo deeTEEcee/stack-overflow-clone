@@ -9,8 +9,12 @@ class Question
   field :title, type: String
   field :description, type: String
 
-  validates :title, presence:true, length: { minimum: 15,  maximum: 150}, uniqueness: true
-  validates :description, presence:true, length: { minimum: 30, maximum: 30000 }
+  validates :title, 
+  	presence:true, 
+  	length: { minimum: 15,  maximum: 150}, uniqueness: true
+  validates :description, 
+  	presence:true, 
+  	length: { minimum: 30, maximum: 30000 }
 
 
 end
