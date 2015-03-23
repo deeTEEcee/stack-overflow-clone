@@ -1,23 +1,69 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  signup: 'Sign up'
+  login: 'Login'
+  logout: 'Logout'
+  edit: 'Edit'
+  cancel: 'cancel'
+  site:
+    title: 'Stack Overflow'
+  header:
+    questions: 'Questions'
+    ask_question: 'Ask Question'
+  page:
+    user:
+      login:
+        alert: 'Incorrect username or password'
+      logout:
+        subheader: 'Log Out'
+        message: "Clicking Log Out will clear our cookies and log you out of Stack Overflow on all devices."
+    question:
+      form:
+        post: 'Post Your Question'
+        edit: 'Save Edits'
+      subheader: 'Questions'
+      answers_count:
+        zero: '0 Answers'
+        one: '1 Answer'
+        other: "%{count} Answers"
+      answer:
+        subheader: 'Your Answer'
+        post: 'Post Your Answer'
+  mongoid:
+    errors:
+      models:
+        user:
+          attributes:
+            username:
+              blank: 'Please enter a username.'
+              too_short: 'The username must be longer than %{count} characters.'
+              too_long: 'Username cannot be longer than %{count} characters'
+              invalid: 'Please enter only alphabetic characters, numbers, or special characters (-_)'
+              taken: 'Username is taken.'
+            email:
+              blank: 'Please enter an e-mail.'
+              invalid: 'Invalid e-mail'
+              taken: 'Email is taken.'
+            password:
+              blank: 'Please enter a password.'
+              too_short: 'The password is too short. (At least %{count} characters required)'
+              invalid: 'Invalid password'
+            password_confirmation:
+              confirmation: 'Password confirmation does not match.'
+        question:
+          attributes:
+            title:
+              blank: 'Title is blank.'
+              too_short: 'Title must be at least %{count} characters'
+              too_long: 'Title cannot be longer than %{count} characters'
+            description:
+              blank: 'Body is blank'
+              too_short: 'Body must be at least %{count} characters.'
+              too_long: 'Body cannot be longer than %{count} characters'
+        answer:
+          attributes:
+            description:
+              blank: 'Body is blank'
+              too_short: 'Body must be at least %{count} characters.'
+              too_long: 'Body cannot be longer than %{count} characters'
+      messages:
+        document_not_found: 'Mongoid document not found'

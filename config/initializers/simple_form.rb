@@ -143,7 +143,7 @@ SimpleForm.setup do |config|
   # config.country_priority = nil
 
   # When false, do not use translations for labels.
-  # config.translate_labels = true
+  config.translate_labels = true
 
   # Automatically discover new inputs in Rails' autoload path.
   # config.inputs_discovery = true
@@ -162,5 +162,5 @@ SimpleForm.setup do |config|
   # config.include_default_input_wrapper_class = true
 
   # Defines which i18n scope will be used in Simple Form.
-  # config.i18n_scope = 'simple_form'
+  config.i18n_scope = 'simple_form'
 end

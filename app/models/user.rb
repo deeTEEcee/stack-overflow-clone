@@ -9,7 +9,7 @@ class User
 		presence: true, 
 		uniqueness: true,
 		length: { minimum: 6, maximum: 25}, 
-		format: { with: /\A\w+\Z/ }
+		format: { with: /\A[\w-]+\Z/ }
 	validates :password,
 		presence: true,
 		confirmation: true,

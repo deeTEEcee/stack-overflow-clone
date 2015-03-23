@@ -3,7 +3,6 @@ class SessionsController < ApplicationController
 	before_action :require_login, :only => [:logout, :destroy]
 
   def new
-  	@user = User.new
   	render 'users/entry'
   end
 
@@ -11,8 +10,8 @@ class SessionsController < ApplicationController
 	  if @user = login(session_params[:username], session_params[:password])
 	    redirect_back_or_to root_url #, :notice => "Logged in!"
 	  else
-	    flash.now.alert = "Email or password was invalid"
-	    render :new
+	    flash[:alert] = I18n.t('page.user.login.alert')
+	    render 'users/entry'
 	  end
 	end
 

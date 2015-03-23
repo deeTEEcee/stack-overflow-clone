@@ -6,12 +6,12 @@
 
 <div id="question">
 	<%= markdown(@question.description) %>
-	<%= link_to 'Edit', edit_question_path, class: 'text-muted' %>
+	<%= link_to t('edit'), edit_question_path, class: 'text-muted' %>
 </div>
 
 <div id="answers">
 <% if answers.exists? %>
-		<h4> <%= answers.count %> Answers </h4>
+		<h4> <%= t('page.question.answers_count', :count => answers.count) %> </h4>
 		<hr>
 		<% answers.each do |answer| %>
 			<div id="answer">
@@ -20,7 +20,7 @@
 			</div>
 		<% end %>
 <% else %>
-	Know someone who can answer? Share a link to this TODO: question via TODO:email, , , or .
+	Know someone who can answer? Share a link to this question via (insert email action here)
 	<hr>
 <% end %>
 </div>

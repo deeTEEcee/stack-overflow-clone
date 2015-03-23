@@ -1,0 +1,69 @@
+ja:
+  signup: '登録'
+  login: 'ログイン'
+  logout: 'ログアウト'
+  edit: '編集'
+  cancel: 'キャンセル'
+  site:
+    title: 'スタック・オーバーフロー'
+  header:
+    questions: '質問'
+    ask_question: '質問する'
+  page:
+    user:
+      login:
+        alert: 'Incorrect username or password'
+      logout:
+        subheader: 'ログアウト'
+        message: "［ログアウト］をクリックすると弊社の Cookie がクリアされ、すべてのデバイスで スタック・オーバーフロー からログアウトされます。"
+    question:
+      form:
+        post: '質問を投稿'
+        edit: '編集を保存する'
+      subheader: '質問を見る'
+      answers_count:
+        zero: '0 回答'
+        one: '1 回答'
+        other: "%{count} 回答"
+      answer:
+        subheader: '回答'
+        post: '回答を投稿'
+  mongoid:
+    errors:
+      models:
+        user:
+          attributes:
+            username:
+              blank: 'ユーザー名がありません。'
+              too_short: 'ユーザー名は %{count} 文字以上でなければなりません。'
+              too_long: 'ユーザー名は%{count}文字以上ではできません。'
+              invalid: 'Please enter only alphabetic characters, numbers, or special characters (-_)'
+              taken: 'Username is taken.'
+            email:
+              blank: 'メールアドレスを空白にすることはできません。'
+              invalid: '%{value} は有効なメールアドレスではありません。'
+              taken: 'Email is taken.'
+            password:
+              blank: 'パスワードがありません。'
+              too_short: 'パスワードは %{count} 文字以上でなければなりません。'
+              invalid: '%{value} は有効なパスワードではありません。'
+            password_confirmation:
+              confirmation: 'パスワードと合いません。'
+        question:
+          attributes:
+            title:
+              blank: 'タイトルがありません。'
+              too_short: 'タイトルは %{count} 文字以上でなければなりません。'
+              too_long: 'タイトルは%{count}文字以上ではできません。'
+            description:
+              blank: '本文がありません。'
+              too_short: '本文は少なくとも%{count}文字必要です。'
+              too_long: '本文は%{count}文字以上ではできません。'
+        answer:
+          attributes:
+            description:
+              blank: '本文がありません。'
+              too_short: '本文は少なくとも%{count}文字必要です。'
+              too_long: '本文は%{count}文字以上ではできません。'
+      messages:
+        document_not_found: 'Mongoid document not found'

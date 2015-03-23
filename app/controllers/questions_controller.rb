@@ -49,7 +49,7 @@ class QuestionsController < ApplicationController
     end
 
     def questions
-      Question.where(user: current_user)
+      Question.all
     end
 
     # Only allow a trusted parameter "white list" through.

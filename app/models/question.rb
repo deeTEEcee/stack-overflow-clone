@@ -6,8 +6,8 @@ class Question
   belongs_to :user
   has_many :answers, validate: false
 
-  field :title, type: String
-  field :description, type: String
+  field :title, type: String #, localize: true
+  field :description, type: String# , localize: true
 
   validates :title, 
   	presence:true, 
