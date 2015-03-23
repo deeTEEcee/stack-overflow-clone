@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   end
   get 'questions/:id/(:title)' => 'questions#show', :as => 'question'
   put 'questions/:id' => 'questions#update'
+  patch 'questions/:id' => 'questions#update'
   delete 'questions/:id' => 'questions#destroy'
 
   

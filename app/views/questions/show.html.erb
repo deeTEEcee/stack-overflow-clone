@@ -5,8 +5,8 @@
 </div>
 
 <div id="question">
-	<%= @question.description %>
-	TODO; insert edit here as well
+	<%= markdown(@question.description) %>
+	<%= link_to 'Edit', edit_question_path, class: 'text-muted' %>
 </div>
 
 <div id="answers">
@@ -15,7 +15,7 @@
 		<hr>
 		<% answers.each do |answer| %>
 			<div id="answer">
-				<%= answer.description %>
+				<%= markdown(answer.description) %>
 				<hr>
 			</div>
 		<% end %>

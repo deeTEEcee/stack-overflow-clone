@@ -6,6 +6,8 @@ gem 'mongoid', '~> 4.0.0'
 gem 'sorcery'
 
 gem 'simple_form' ## Warning: not supported by mongoid but it does work
+gem 'redcarpet'
+
 gem 'bootstrap-sass', '~> 3.3.4'
 gem 'sass-rails', '>= 3.2'
 gem 'uglifier', '>= 1.3.0'

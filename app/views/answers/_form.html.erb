@@ -2,6 +2,6 @@
 
 <%= simple_form_for [@question, @answer] do |f| %>
   <h4>Your Answer</h4>
-  <%= f.input :description %>
+  <%= f.input :description, as: :text, label: false, input_html: { style: "height: 200px;"}%>
   <%= f.button :submit, 'Post Your Answer', class: 'btn btn-md btn-primary' %> 
 <% end %>
