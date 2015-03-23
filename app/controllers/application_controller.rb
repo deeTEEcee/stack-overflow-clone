@@ -13,9 +13,9 @@ class ApplicationController < ActionController::Base
   end
 
   def require_logged_out
-  	if logged_in?
-  		redirect_to root_url
-  	end
+    if logged_in?
+      redirect_to root_url
+    end
   end
 
   def not_authenticated

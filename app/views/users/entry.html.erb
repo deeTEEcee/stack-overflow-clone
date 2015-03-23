@@ -4,10 +4,10 @@
   </li>
   <li class="<%= 'active' if params[:controller] == 'users' %>">
   <%= link_to t('signup'), signup_path %>
-  </li>   
+  </li>
 </ul>
 <% if params[:controller] == 'sessions' %>
-	<%= render 'sessions/login' %>	
+  <%= render 'sessions/login' %>
 <% elsif params[:controller] == 'users' %>
-	<%= render 'signup' %>
+  <%= render 'signup' %>
 <% end %>

@@ -5,23 +5,23 @@
 </div>
 
 <div id="question">
-	<%= markdown(@question.description) %>
-	<%= link_to t('edit'), edit_question_path, class: 'text-muted' %>
+  <%= markdown(@question.description) %>
+  <%= link_to t('edit'), edit_question_path, class: 'text-muted' %>
 </div>
 
 <div id="answers">
 <% if answers.exists? %>
-		<h4> <%= t('page.question.answers_count', :count => answers.count) %> </h4>
-		<hr>
-		<% answers.each do |answer| %>
-			<div id="answer">
-				<%= markdown(answer.description) %>
-				<hr>
-			</div>
-		<% end %>
+    <h4> <%= t('page.question.answers_count', :count => answers.count) %> </h4>
+    <hr>
+    <% answers.each do |answer| %>
+      <div id="answer">
+        <%= markdown(answer.description) %>
+        <hr>
+      </div>
+    <% end %>
 <% else %>
-	Know someone who can answer? Share a link to this question via (insert email action here)
-	<hr>
+  Know someone who can answer? Share a link to this question via (insert email action here)
+  <hr>
 <% end %>
 </div>
 

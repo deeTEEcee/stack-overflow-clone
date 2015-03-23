@@ -9,41 +9,41 @@
 </head>
 <body>
 
-	<nav id="topbar" class="navbar navbar-default navbar-static-top">
-		<a class="navbar-brand" style="padding-top:0px;" href="#">
-			<%= image_tag 'topbar-icon.png' %>
-		</a>
+  <nav id="topbar" class="navbar navbar-default navbar-static-top">
+    <a class="navbar-brand" style="padding-top:0px;" href="#">
+      <%= image_tag 'topbar-icon.png' %>
+    </a>
     <ul class="nav navbar-nav">
-			<% if logged_in? %>
-			  <li><%= link_to t('logout'), logout_path %></li>
-			<% else %>
-			  <li><%= link_to t('signup'), signup_path %></li>
-			  <li><%= link_to t('login'), login_path %></li>
-			<% end %>
+      <% if logged_in? %>
+        <li><%= link_to t('logout'), logout_path %></li>
+      <% else %>
+        <li><%= link_to t('signup'), signup_path %></li>
+        <li><%= link_to t('login'), login_path %></li>
+      <% end %>
     </ul>
-	</nav>
+  </nav>
 
-	<div class="container">
+  <div class="container">
     <div id="header">
       <%= image_tag 'header.png', style: 'vertical-align: text-bottom;' %>
       <%= link_to t('header.questions'), questions_path %>
       <%= link_to t('header.ask_question'), new_question_path %>
     </div>
-		<% if flash[:login] %>
-			<div id="login-required">
-				You must be logged in to ask a question on Stack Overflow
+    <% if flash[:login] %>
+      <div id="login-required">
+        You must be logged in to ask a question on Stack Overflow
 
-				Log in below or <%= link_to 'Sign up', signup_path %>			
-			</div>
-		<% end %>
-		<%= yield %>
-	</div>
-	
-	<footer id="footer" class="navbar navbar-default">
-		<div class="container">
-			<p>Just some text in here about copyright</p>
-		</div>
-	</nav>
+        Log in below or <%= link_to 'Sign up', signup_path %>
+      </div>
+    <% end %>
+    <%= yield %>
+  </div>
+
+  <footer id="footer" class="navbar navbar-default">
+    <div class="container">
+      <p>Just some text in here about copyright</p>
+    </div>
+  </nav>
 
 </body>
 </html>

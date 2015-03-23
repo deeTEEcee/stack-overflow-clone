@@ -34,8 +34,8 @@ group :development, :test do
 end
 
 group :production do
-	gem 'rails_12factor'
-	gem 'factory_girl_rails' # TODO: remove after we confirmed heroku works
+  gem 'rails_12factor'
+  gem 'factory_girl_rails' # TODO: remove after we confirmed heroku works
 end
 
 ruby "2.2.0"
