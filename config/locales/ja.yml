@@ -66,4 +66,8 @@ ja:
               too_short: '本文は少なくとも%{count}文字必要です。'
               too_long: '本文は%{count}文字以上ではできません。'
       messages:
-        document_not_found: 'Mongoid document not found'
+        document_not_found:
+        validations:
+          message:
+          summary:
+          resolution:

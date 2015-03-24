@@ -1,8 +1,21 @@
-== Stack Overflow Clone 
+== Stack Overflow Clone
 This is a stack overflow clone with support for japanese using the following stack.
 
 * MongoDB
 
 * Rails 4.2, Ruby 2.2
+
+== For the future: minitest spec setup instructions
+
+1. install the following gems
+
+  ```
+  gem "minitest-spec-rails"
+  gem 'capybara_minitest_spec' # for capybara integration and spec matchers
+  gem 'poltergeist' # used with phantomjs
+  brew install phantomjs # for poltergeist
+  ```
+
+
 
 

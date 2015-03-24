@@ -11,7 +11,8 @@ class Question
 
   validates :title,
     presence:true,
-    length: { minimum: 15,  maximum: 150}, uniqueness: true
+    length: { minimum: 15,  maximum: 150},
+    uniqueness: true
   validates :description,
     presence:true,
     length: { minimum: 30, maximum: 30000 }
