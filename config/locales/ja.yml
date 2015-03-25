@@ -12,7 +12,7 @@ ja:
   page:
     user:
       login:
-        alert: 'Incorrect username or password'
+        alert: 'ユーザー名又パスワードが正しくありません'
         required_html: >
           <p><strong>質問するには、ログインする必要があります。</strong></p>
           <p>登録するかアカウントを<a href="%{link}">取得</a>する</p>
@@ -44,12 +44,12 @@ ja:
               blank: 'ユーザー名がありません。'
               too_short: 'ユーザー名は %{count} 文字以上でなければなりません。'
               too_long: 'ユーザー名は%{count}文字以上ではできません。'
-              invalid: 'Please enter only alphabetic characters, numbers, or special characters (-_)'
-              taken: 'Username is taken.'
+              invalid: 'アルファベット、数字、スペシャルな文字（-_）だけを入力してください。'
+              taken: 'ユーザー名はもう登録されています。'
             email:
               blank: 'メールアドレスを空白にすることはできません。'
               invalid: '%{value} は有効なメールアドレスではありません。'
-              taken: 'Email is taken.'
+              taken: 'メールはもう登録されています。'
             password:
               blank: 'パスワードがありません。'
               too_short: 'パスワードは %{count} 文字以上でなければなりません。'
