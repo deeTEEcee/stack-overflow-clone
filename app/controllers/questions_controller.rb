@@ -1,9 +1,9 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
-  before_action :require_login, :only => [:new, :edit]
+  before_action :require_login, :only => [:new, :create]
 
   def index
-    @questions = Question.all
+    @questions = questions
   end
 
   def show
@@ -12,14 +12,14 @@ class QuestionsController < ApplicationController
   end
 
   def new
-    @question = questions.new
+    @question = my_questions.new
   end
 
   def edit
   end
 
   def create
-    @question = questions.new(question_params)
+    @question = my_questions.new(question_params)
 
     if @question.save
       redirect_to @question
@@ -47,6 +47,10 @@ class QuestionsController < ApplicationController
 
     def questions
       Question.all
+    end
+
+    def my_questions
+      Question.where(user: current_user)
     end
 
     # Only allow a trusted parameter "white list" through.

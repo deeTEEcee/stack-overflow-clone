@@ -15,6 +15,7 @@
     </a>
     <ul class="nav navbar-nav">
       <% if logged_in? %>
+        <li><%= current_user.username %></li>
         <li><%= link_to t('logout'), logout_path %></li>
       <% else %>
         <li><%= link_to t('signup'), signup_path %></li>
@@ -30,16 +31,14 @@
       <%= link_to t('header.ask_question'), new_question_path %>
     </div>
     <% if flash[:login] %>
-      <div id="login-required">
-        You must be logged in to ask a question on Stack Overflow
-
-        Log in below or <%= link_to 'Sign up', signup_path %>
+      <div class="text-center val-msg">
+        <%= t('page.user.login.required_html', link: signup_path) %>
       </div>
     <% end %>
     <%= yield %>
   </div>
 
-  <footer id="footer" class="navbar navbar-default">
+  <footer id="footer" class="navbar navbar-default" style="display:none;">
     <div class="container">
       <p>Just some text in here about copyright</p>
     </div>

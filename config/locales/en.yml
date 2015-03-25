@@ -13,11 +13,16 @@ en:
     user:
       login:
         alert: 'Incorrect username or password'
+        required_html: >
+          <p><strong>You must be logged in to ask a question on Stack Overflow</strong></p>
+          <p>Log in below or <a href="%{link}">sign up</a></p>
       logout:
         subheader: 'Log Out'
         message: "Clicking Log Out will clear our cookies and log you out of Stack Overflow on all devices."
     question:
-      suggestion_html: "Know someone who can answer? Share this <a href=\"%{link}\">link</a"
+      asked: 'Asked'
+      modified: 'Modified'
+      suggestion_html: "Know someone who can answer? Share this <a href=\"%{link}\">link</a>"
       login_required_html: "<h4 style=\"display:inline;\">Sign up or <a href=\"%{link}\">Login</a></h4><span class=\"text-muted\"> to answer this question<span>"
       form:
         post: 'Post Your Question'

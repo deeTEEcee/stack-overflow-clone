@@ -1,30 +1,59 @@
 <% answers = @question.answers %>
-<div class="page-header">
-<h1><%= @question.title %></h1>
-</div>
-
-<div id="question">
-  <%= markdown(@question.description) %>
-  <%= link_to t('edit'), edit_question_path, class: 'text-muted' %>
-</div>
-
-<div id="answers">
-<% if answers.exists? %>
-    <h4> <%= t('page.question.answers_count', :count => answers.count) %> </h4>
-    <hr>
-    <% answers.each do |answer| %>
-      <div id="answer">
-        <%= markdown(answer.description) %>
-        <hr>
+<div class="row">
+  <div class="col-md-10 content">
+    <div class="page-header">
+      <h3><%= @question.title %></h3>
+    </div>
+    <div id="question" class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-9">
+        <%= markdown(@question.description) %>
+        <div class="row">
+          <div class="col-md-4"><%= link_to t('edit'), edit_question_path(@question), class: 'text-muted' %></div>
+          <div class="col-md-4 edited"></div>
+          <div class="col-md-4 user-info">
+            <%= t('page.question.asked') %> <%= time_ago_in_words(@question.created_at)%>
+            <br>
+            <%= @question.user.username %>
+          </div>
+        </div>
       </div>
+    </div>
+
+    <div id="answers">
+    <% if answers.exists? %>
+        <h4> <%= t('page.question.answers_count', :count => answers.count) %> </h4>
+        <hr>
+        <% answers.each do |answer| %>
+          <div id="answer" class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-9">
+              <%= markdown(answer.description) %>
+              <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4 edited"></div>
+                <div class="col-md-4 user-info">
+                  <%= t('page.question.asked') %> <%= time_ago_in_words(answer.created_at)%>
+                  <br>
+                  <%= answer.user.username %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr>
+        <% end %>
+    <% else %>
+      <hr>
+      <%= t('page.question.suggestion_html', :link => question_short_url(@question)) %>
     <% end %>
-<% else %>
-  <%= t('page.question.suggestion_html', :link => question_short_url(@question)) %>
-  <hr>
-<% end %>
+    </div>
+    <% if logged_in? %>
+      <%= render 'answers/form' %>
+    <% else %>
+      <%= t('page.question.login_required_html', :link => login_path) %>
+    <% end %>
+  </div>
+  <div class="col-md-2 sidebar">
+    <span class="text-muted"><%= t('page.question.asked') %> </span>&nbsp&nbsp&nbsp&nbsp<%= time_ago_in_words(@question.created_at) %>
+  </div>
 </div>
-<% if logged_in? %>
-  <%= render 'answers/form' %>
-<% else %>
-  <%= t('page.question.login_required_html', :link => login_path) %>
-<% end %>

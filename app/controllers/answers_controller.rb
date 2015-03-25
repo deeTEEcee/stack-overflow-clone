@@ -4,7 +4,7 @@ class AnswersController < ApplicationController
   before_action :require_login
 
   def create
-    @answer = Answer.where(question: @question).new(answer_params)
+    @answer = Answer.where(question: @question, user: current_user).new(answer_params)
     if @answer.save
       redirect_to question_path(@question, @question.title.parameterize)
     else

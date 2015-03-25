@@ -13,10 +13,15 @@ ja:
     user:
       login:
         alert: 'Incorrect username or password'
+        required_html: >
+          <p><strong>質問するには、ログインする必要があります。</strong></p>
+          <p>登録するかアカウントを<a href="%{link}">取得</a>する</p>
       logout:
         subheader: 'ログアウト'
         message: "［ログアウト］をクリックすると弊社の Cookie がクリアされ、すべてのデバイスで スタック・オーバーフロー からログアウトされます。"
     question:
+      asked: '質問日時'
+      modified: '変更日時'
       suggestion_html: "誰か回答できる人を知っていますか？この<a href=\"%{link}\">質問</a>を共有できます。"
       login_required_html: "<span class=\"text-muted\">質問するため</span><h4 style=\"display:inline;\">登録または<a href=\"%{link}\">ログイン</a></h4>"
       form:

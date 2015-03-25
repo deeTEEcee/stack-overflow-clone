@@ -19,7 +19,8 @@ class ApplicationController < ActionController::Base
   end
 
   def not_authenticated
-    redirect_to login_url, :login => 'Login required'
+    flash[:login] = 'Login required'
+    redirect_to login_url
   end
 
 end

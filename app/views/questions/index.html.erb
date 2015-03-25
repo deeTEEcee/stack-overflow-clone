@@ -1,13 +1,22 @@
 <div class="page-header">
-  <%= t('page.question.subheader') %>
+  <h3><%= t('page.question.subheader') %></h3>
 </div>
 <div id="questions-list">
 <% @questions.each do |question| %>
   <div class="answered"><%= t('page.question.answers_count', :count => question.answers.count) %></div>
   <div id="question-row">
     <p> <%= link_to question.title, question_short_url(question), class: 'question-link' %> </p>
-    <p> When was this last asked/modified?</p>
+    <div class="user-time-submitted">
+      <span class="text-muted">
+      <% if question.updated_at %>
+        <%= t('page.question.modified') %> <%= time_ago_in_words(question.updated_at)%>
+      <% else %>
+        <%= t('page.question.asked') %> <%= time_ago_in_words(question.created_at)%>
+      <% end %>
+      </span>&nbsp<%= question.user.username %>
+    </div>
   </div>
+  <hr>
 <% end %>
 </div>
 <br>
