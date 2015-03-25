@@ -1,6 +1,6 @@
 <%= simple_form_for(:session, url: sessions_path) do |f| %>
   <% if flash[:alert] %>
-    <div class="alert alert-warning" role="alert">Incorrect username or password.</div>
+    <div class="alert alert-warning" role="alert"><%= t('page.user.login.alert') %></div>
   <% end %>
   <%= f.input :username %>
   <%= f.input :password %>
