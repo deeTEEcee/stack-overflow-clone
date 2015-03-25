@@ -1,10 +1,4 @@
-module FormHelper
-  # rspec's I18n.t
-  # def rt(label)
-  #   t("simple_form.labels.defaults.#{label}")
-  # end
-end
-
+# List of helpers only for acceptance testing
 module Helper
   def login(user)
     visit '/'

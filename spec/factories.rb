@@ -1,8 +1,9 @@
 # encoding: utf-8
 FactoryGirl.define do
-  markdown_sample = File.read('spec/fixtures/markdown.md')
-  description_sample = "text123456" * 5
-  ja_description_sample = "あいうえおカナ漢字" * 5
+  markdown = File.read('spec/fixtures/markdown.md')
+  markdown_small = File.read('spec/fixtures/markdown-sm.md')
+  description = "text123456" * 5
+  ja_description = "あいうえおカナ漢字" * 5
 
   sequence :username do |n|
     "regular-user#{n}"
@@ -27,32 +28,32 @@ FactoryGirl.define do
 
   factory :question do
     title { generate :title }
-    description description_sample
+    description description
   end
 
   factory :question_by_ja, class: :question do
     title { generate :title }
-    description ja_description_sample
+    description ja_description
   end
 
   factory :question_with_markdown, class: :question do
     title { generate :title }
-    description markdown_sample
+    description markdown
     # after(:create) do |question|
     #   create(:answer, question: question)
     # end!
   end
 
   factory :answer do
-    description description_sample
+    description description
   end
 
   factory :answer_by_ja, class: :answer do
-    description ja_description_sample
+    description ja_description
   end
 
   factory :answer_with_markdown, class: :answer do
-    description markdown_sample
+    description markdown_small
   end
 
 end

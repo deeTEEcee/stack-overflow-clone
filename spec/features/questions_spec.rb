@@ -1,4 +1,4 @@
-require 'acceptance_helper'
+require_relative 'acceptance_helper'
 
 def generate_question
   FactoryGirl.build(:question_by_ja)
