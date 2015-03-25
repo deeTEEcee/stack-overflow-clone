@@ -7,11 +7,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    if params[:title] != @question.title.parameterize
-      redirect_to question_path(@question, @question.title.parameterize)
-    end
     @answer = nil
-
   end
 
   def new
