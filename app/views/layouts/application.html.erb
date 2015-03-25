@@ -8,11 +8,8 @@
   <%= favicon_link_tag 'favicon.ico' %>
 </head>
 <body>
-
+<div id="wrapper">
   <nav id="topbar" class="navbar navbar-default navbar-static-top">
-    <a class="navbar-brand" style="padding-top:0px;" href="#">
-      <%= image_tag 'topbar-icon.png' %>
-    </a>
     <ul class="nav navbar-nav">
       <% if logged_in? %>
         <li><%= current_user.username %></li>
@@ -26,9 +23,11 @@
 
   <div class="container">
     <div id="header">
-      <%= image_tag 'header.png', style: 'vertical-align: text-bottom;' %>
-      <%= link_to t('header.questions'), questions_path %>
-      <%= link_to t('header.ask_question'), new_question_path %>
+      <%= link_to root_path do %>
+        <%= image_tag 'header.png', style: 'vertical-align: text-bottom;' %>
+      <% end %>
+        <span class="nav-item"><%= link_to t('header.questions'), questions_path %></span>
+        <span class="nav-item"><%= link_to t('header.ask_question'), new_question_path %></span>
     </div>
     <% if flash[:login] %>
       <div class="text-center val-msg">
@@ -37,12 +36,11 @@
     <% end %>
     <%= yield %>
   </div>
-
-  <footer id="footer" class="navbar navbar-default" style="display:none;">
-    <div class="container">
-      <p>Just some text in here about copyright</p>
-    </div>
-  </nav>
-
+</div>
+  <footer id="footer" class="navbar navbar-default">
+    <ul class="nav navbar-nav">
+      <li>Just some text in here about copyright</li>
+    </ul>
+  </footer>
 </body>
 </html>
