@@ -17,6 +17,7 @@ ja:
         subheader: 'ログアウト'
         message: "［ログアウト］をクリックすると弊社の Cookie がクリアされ、すべてのデバイスで スタック・オーバーフロー からログアウトされます。"
     question:
+      suggestion_html: "誰か回答できる人を知っていますか？この<a href=\"%{link}\">質問</a>を共有できます。"
       form:
         post: '質問を投稿'
         edit: '編集を保存する'

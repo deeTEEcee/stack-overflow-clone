@@ -5,7 +5,7 @@
 <% @questions.each do |question| %>
   <div class="answered"><%= t('page.question.answers_count', :count => question.answers.count) %></div>
   <div id="question-row">
-    <p> <%= link_to question.title, question.short_url, class: 'question-link' %> </p>
+    <p> <%= link_to question.title, question_short_url(question), class: 'question-link' %> </p>
     <p> When was this last asked/modified?</p>
   </div>
 <% end %>

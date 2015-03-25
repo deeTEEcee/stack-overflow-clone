@@ -20,7 +20,7 @@
       </div>
     <% end %>
 <% else %>
-  Know someone who can answer? Share a link to this question via (insert email action here)
+  <%= t('page.question.suggestion_html', :link => question_short_url(@question)) %>
   <hr>
 <% end %>
 </div>

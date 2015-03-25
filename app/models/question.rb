@@ -18,12 +18,12 @@ class Question
     presence:true,
     length: { minimum: 30, maximum: 30000 }
 
-  def short_url
-    question_path(self, self.title.truncate(40, omission:'', separator:' ').parameterize)
-  end
+  # def short_url
+  #   question_url(self, self.title.truncate(40, omission:'', separator:' ').parameterize)
+  # end
 
-  def default_url_options(options={})
-    {:locale => Rails.application.config.i18n.default_locale}
-  end
+  # def default_url_options(options={})
+  #   {:locale => Rails.application.config.i18n.default_locale}
+  # end
 
 end
