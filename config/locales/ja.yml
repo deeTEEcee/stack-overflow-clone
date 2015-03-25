@@ -18,6 +18,7 @@ ja:
         message: "［ログアウト］をクリックすると弊社の Cookie がクリアされ、すべてのデバイスで スタック・オーバーフロー からログアウトされます。"
     question:
       suggestion_html: "誰か回答できる人を知っていますか？この<a href=\"%{link}\">質問</a>を共有できます。"
+      login_required_html: "<span class=\"text-muted\">質問するため</span><h4 style=\"display:inline;\">登録または<a href=\"%{link}\">ログイン</a></h4>"
       form:
         post: '質問を投稿'
         edit: '編集を保存する'

@@ -7,6 +7,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
+    session[:return_to_url] = request.url
     @answer = nil
   end
 

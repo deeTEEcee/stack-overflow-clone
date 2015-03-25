@@ -18,6 +18,7 @@ en:
         message: "Clicking Log Out will clear our cookies and log you out of Stack Overflow on all devices."
     question:
       suggestion_html: "Know someone who can answer? Share this <a href=\"%{link}\">link</a"
+      login_required_html: "<h4 style=\"display:inline;\">Sign up or <a href=\"%{link}\">Login</a></h4><span class=\"text-muted\"> to answer this question<span>"
       form:
         post: 'Post Your Question'
         edit: 'Save Edits'

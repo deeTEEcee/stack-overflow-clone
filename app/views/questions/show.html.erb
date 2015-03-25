@@ -1,5 +1,4 @@
 <% answers = @question.answers %>
-
 <div class="page-header">
 <h1><%= @question.title %></h1>
 </div>
@@ -24,5 +23,8 @@
   <hr>
 <% end %>
 </div>
-
-<%= render 'answers/form' %>
+<% if logged_in? %>
+  <%= render 'answers/form' %>
+<% else %>
+  <%= t('page.question.login_required_html', :link => login_path) %>
+<% end %>
