@@ -20,6 +20,8 @@ en:
         subheader: 'Log Out'
         message: "Clicking Log Out will clear our cookies and log you out of Stack Overflow on all devices."
     question:
+      newest: 'newest'
+      unanswered: 'unanswered'
       asked: 'Asked'
       modified: 'Modified'
       suggestion_html: "Know someone who can answer? Share this <a href=\"%{link}\">link</a>"

@@ -1,8 +1,8 @@
 <div class="page-header">
   <span class="h3"><%= t('page.question.subheader') %></span>
   <div class="question-tabs">
-    <%= link_to 'newest', questions_path(sort: 'newest'), { class:('active' if params[:sort] == 'newest') }  %>
-    <%= link_to 'unanswered', questions_path(sort: 'unanswered'), {class:('active' if params[:sort] == 'unanswered') } %>
+    <%= link_to t('page.question.newest'), questions_path(sort: 'newest'), { class:('active' if params[:sort] == 'newest') }  %>
+    <%= link_to t('page.question.unanswered'), questions_path(sort: 'unanswered'), {class:('active' if params[:sort] == 'unanswered') } %>
   </div>
 </div>
 <div id="questions-list">
