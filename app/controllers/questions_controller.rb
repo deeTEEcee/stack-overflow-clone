@@ -3,7 +3,15 @@ class QuestionsController < ApplicationController
   before_action :require_login, :only => [:new, :create]
 
   def index
-    @questions = questions
+    unless params[:sort]
+      params[:sort] = 'newest'
+    end
+    case params[:sort]
+    when 'newest'
+      @questions = questions
+    when 'unanswered'
+      @questions = questions.not.in(id: Answer.pluck(:question_id))
+    end
   end
 
   def show
@@ -46,7 +54,7 @@ class QuestionsController < ApplicationController
     end
 
     def questions
-      Question.all
+      Question.order_by(created_at: -1)
     end
 
     def my_questions
