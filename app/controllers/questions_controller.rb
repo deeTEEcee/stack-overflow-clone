@@ -12,6 +12,7 @@ class QuestionsController < ApplicationController
     when 'unanswered'
       @questions = questions.not.in(id: Answer.pluck(:question_id))
     end
+    @questions = @questions.page(params[:page]).per(25)
   end
 
   def show

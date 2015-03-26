@@ -7,6 +7,7 @@ gem 'sorcery'
 gem 'rails-i18n'
 
 gem 'simple_form' ## Warning: not supported by mongoid but it does work
+gem 'kaminari'
 gem 'redcarpet'
 
 gem 'bootstrap-sass', '~> 3.3.4'
