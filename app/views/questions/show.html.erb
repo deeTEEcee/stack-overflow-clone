@@ -47,11 +47,36 @@
       <%= t('page.question.suggestion_html', :link => question_short_url(@question)) %>
     <% end %>
     </div>
+    <div id="js-post-answer">
     <% if logged_in? %>
-      <%= render 'answers/form' %>
+      <% if @question.user == current_user %>
+        <%= button_tag 'Post answer to own question', id: 'js-answer-self', class: 'btn btn-md btn-primary' %>
+        <div id="popup">
+          <h3>Are you sure you want to answer your question?</h3>
+          <p><strong>Comment</strong> if you're trying to respond to an answer. </p>
+          <p><strong>Edit</strong> your question if you need to add more details. </p>
+          <%= link_to 'cancel', '#', onclick: "$('#popup').dialog('close'); return false;" %>
+          <%= link_to 'Yes, I want to post an answer',new_question_answer_path(@question), class:'my-button', remote: true %>
+        </div>
+        <%= javascript_tag do %>
+          $('#js-answer-self').click(function(){
+            $("#popup").dialog({
+              width: 400,
+              height: 200,
+            });
+            $('#popup').draggable()
+            $(".ui-dialog-titlebar").hide();
+          });
+        <% end %>
+
+
+      <% else %>
+        <%= render 'answers/form' %>
+      <% end %>
     <% else %>
       <%= t('page.question.login_required_html', :link => login_path) %>
     <% end %>
+    </div>
   </div>
   <div class="col-md-2 sidebar">
     <span class="text-muted"><%= t('page.question.asked') %> </span>&nbsp&nbsp&nbsp&nbsp<%= time_ago_in_words(@question.created_at) %>

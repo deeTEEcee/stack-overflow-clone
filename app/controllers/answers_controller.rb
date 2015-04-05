@@ -1,14 +1,16 @@
 class AnswersController < ApplicationController
-  before_action :get_question, only: [:create]
+  before_action :get_question, only: [:create, :new]
   before_action :set_answer, only: [:edit, :destroy]
   before_action :require_login
+
+  def new
+    # only for js
+  end
 
   def create
     @answer = Answer.where(question: @question, user: current_user).new(answer_params)
     if @answer.save
-      redirect_to question_path(@question, @question.title.parameterize)
-    else
-      render 'questions/show'
+      render js: "window.location = '#{question_path(@question, @question.title.parameterize)}'"
     end
   end
 

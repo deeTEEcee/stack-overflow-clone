@@ -22,6 +22,30 @@ a {
 
 
 // custom classes
+.my-button {
+  background: #222;
+  line-height: 1;
+  padding: .6em .8em;
+  color: #fff;
+  background-color: #009afd;
+  border: 1px solid #1777b7;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.3) inset,0 1px 1px rgba(100,100,100,0.3);
+  padding: 8px 10px 7px 10px;
+  border-radius: 3px;
+  text-decoration: none;
+}
+
+
+#popup {
+  display: none;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  background-color: #fff;
+  border: solid 1px #aaa;
+  width: 200px;
+  height: 400px;
+  padding: 15px 15px 15px 15px;
+}
+
 .page-header {
   border-bottom: 1px solid #e0e0e0;
   padding-bottom: 0px;

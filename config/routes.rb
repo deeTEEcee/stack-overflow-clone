@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     end
 
     resources :questions, :except => [:show, :update, :destroy] do
-      resources :answers, :only => [:create, :update, :destroy]
+      resources :answers, :only => [:create, :new, :update, :destroy]
     end
     get 'questions/:id/(:title)' => 'questions#show', :as => 'question'
     put 'questions/:id' => 'questions#update'

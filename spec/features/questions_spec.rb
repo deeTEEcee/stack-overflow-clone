@@ -32,6 +32,7 @@ feature "Questions" do
       visit '/'
       first('.question-link').click
       answer = generate_answer
+      byebug
       fill_form(:session, {
         'answer_description' => answer.description
       })

@@ -1,7 +1,8 @@
 <% @answer = @question.answers.build unless @answer %>
 
-<%= simple_form_for [@question, @answer] do |f| %>
+<%= simple_form_for [@question, @answer], remote: true do |f| %>
   <h4><%= t('page.question.answer.subheader') %></h4>
   <%= f.input :description, as: :text, label: false, input_html: { style: "height: 200px;"}%>
-  <%= f.button :submit, t('page.question.answer.post'), class: 'btn btn-md btn-primary' %> 
+  <%= f.button :submit, t('page.question.answer.post'), class: 'btn btn-md btn-primary' %>
 <% end %>
+
