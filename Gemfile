@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
 gem 'mongoid', '~> 4.0.0'
+gem 'websocket-rails'
 gem 'sorcery'
 gem 'rails-i18n'
 
@@ -11,7 +12,7 @@ gem 'kaminari'
 gem 'redcarpet'
 
 gem 'bootstrap-sass', '~> 3.3.4'
-gem 'sass-rails', '>= 3.2'
+gem 'sass-rails', '>= 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
@@ -62,7 +63,5 @@ group :test do
 end
 group :production do
   gem 'rails_12factor'
-  gem 'factory_girl_rails' # TODO: remove after we confirmed heroku works
 end
 
-ruby "2.2.0"

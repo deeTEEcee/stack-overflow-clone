@@ -39,3 +39,31 @@
 </div>
 </body>
 </html>
+
+<%= javascript_tag do %>
+  $(function(){
+    window.currentUserId = "<%= current_user.id %>" // TODO: this should be saved as a session id somehow or something so that we wouldn't have to grab it everytime
+    var dispatcher = new WebSocketRails('localhost:3000/websocket');
+    channel = dispatcher.subscribe('answers');
+    channel.bind('new', function(answer) {
+      if(window.currentUserId != answer.user.id){
+        var n = noty({
+          text: 'a new answer for '+ answer.question_title + 'by '+ answer.user.name +' arrived!',
+          type: 'information',
+          animation: {
+            open: 'animated flipInX', // Animate.css class names
+            close: 'animated flipOutX', // Animate.css class names
+            speed: 2000
+          },
+          callback: {
+            afterShow: function() {
+              setTimeout(function(){
+              n.close();
+              }, 5000);
+            }
+          }
+        });
+      }
+    });
+  });
+<% end %>

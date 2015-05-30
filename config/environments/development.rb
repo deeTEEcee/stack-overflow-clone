@@ -35,4 +35,6 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  config.middleware.delete Rack::Lock # not sure what this is (i honestly have never looked at the rack either)
 end
