@@ -10,7 +10,7 @@ class AnswersController < ApplicationController
   def create
     @answer = Answer.where(question: @question, user: current_user).new(answer_params)
     if @answer.save
-      WebsocketRails[:answers].trigger 'new', @answer.info
+      WebsocketRails[:answers].trigger "user#{@answer.question.user.id}-new", @answer.info
       render js: "window.location = '#{question_path(@question, @question.title.parameterize)}'"
     end
   end

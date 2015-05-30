@@ -40,15 +40,15 @@
 </body>
 </html>
 
-<%= javascript_tag do %>
-  $(function(){
-    window.currentUserId = "<%= current_user.id %>" // TODO: this should be saved as a session id somehow or something so that we wouldn't have to grab it everytime
-    var dispatcher = new WebSocketRails('localhost:3000/websocket');
-    channel = dispatcher.subscribe('answers');
-    channel.bind('new', function(answer) {
-      if(window.currentUserId != answer.user.id){
+<% if current_user and current_user.questions.exists? %>
+  <%= javascript_tag do %>
+    $(function(){
+      window.currentUserId = "<%= current_user.id %>" // TODO: this should be saved as a session id somehow or something so that we wouldn't have to grab it everytime
+      var dispatcher = new WebSocketRails('localhost:3000/websocket');
+      channel = dispatcher.subscribe('answers');
+      channel.bind('user'+window.currentUserId+'-new', function(answer) {
         var n = noty({
-          text: 'a new answer for '+ answer.question_title + 'by '+ answer.user.name +' arrived!',
+          text: 'Your question'+ answer.question_title + ' has been answered by '+ answer.user.name,
           type: 'information',
           animation: {
             open: 'animated flipInX', // Animate.css class names
@@ -63,7 +63,7 @@
             }
           }
         });
-      }
+      });
     });
-  });
+  <% end %>
 <% end %>

@@ -5,6 +5,8 @@ class User
 
   attr_accessor :password_confirmation
 
+  has_many :questions
+
   validates :username,
     presence: true,
     uniqueness: true,
